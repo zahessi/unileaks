@@ -6,7 +6,7 @@ def travel(r, zipcode):
     if not addresses: return f"{zipcode}:/"
     numbers = []
     for i, a in enumerate(addresses):
-        n = re.findall(r"\d{1,3}(?= \w+)", a)[0]
+        n = re.findall(r"\d+(?= \w+)", a)[0]
         numbers.append(n)
         addresses[i] = a.strip(n).strip(zipcode)
     return f"{zipcode}:{','.join(addresses)}/{','.join(numbers)}"
